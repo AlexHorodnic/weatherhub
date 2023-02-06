@@ -1,0 +1,35 @@
+<div class="container-fluid" style="display: flex; align-items: center; justify-content: center; text-align: center; background-color: yellow; height: 100%; padding: 10px">
+  Please note that the information displayed here is for demonstration purposes only and may not reflect accurate weather data. This data has been obtained through a public API request from OpenWeatherMap and is intended solely to showcase the response of the API.
+</div>
+<div class="container" style="background-color: white">
+  <div class="row" *ngFor="let cityWeather of citiesWeather">
+    <div class="col-12 title-col">
+      Weather Forecast for <h1 style="display: inline">{{cityWeather.city}} </h1>(Detailed)
+    </div>
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table" style="text-align: center">
+          <thead>
+          <tr>
+            <th>Date/Time</th>
+            <th style="text-align: center">Description</th>
+            <th>Temperature</th>
+            <th>Humidity</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let weather of cityWeather.weatherData.list">
+            <td><i class="fa-solid fa-calendar-days"></i> {{ weather.dt_txt | date: 'MM-dd-YY HH:mm' }}</td>
+            <td >
+              <img [src]="getWeatherIcon(weather.weather[0].description)" alt="weather icon" style="width: 50px; ">
+              <div>{{weather.weather[0].description}}</div>
+            </td>
+            <td> <i class="fas fa-thermometer-half" style="color: #f83232"></i> {{Math.round(weather.main.temp)}} °C</td>
+            <td> <i class="fa-sharp fa-solid fa-droplet" style="color: #5050ff"></i> {{weather.main.humidity}}%</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container-fluid" style="display: flex; align-items: center; justify-content: center; text-align: center; background-color: yellow; height: 100%; padding: 10px">
+  Please note that the information displayed here is for demonstration purposes only and may not reflect accurate weather data. This data has been obtained through a public API request from OpenWeatherMap and is intended solely to showcase the response of the API.
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="font-size: 25px; padding-top: 30px; padding-bottom: 30px; color: white;   font-weight: 400;">
+      <div>Forecast for today's weather for the countries of Europe.</div>
+    </div>
+  </div>
+  <div class="row" >
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12"  style="padding-bottom: 10px" *ngFor="let cityWeather of citiesWeather">
+      <div class="example-card" *ngFor="let weather of cityWeather.weatherData.list.slice(0, 1)">
+        <div style="padding: 15px">
+          <div class="header-row">
+            <div class="title-column" style="font-size: 20px">
+              {{cityWeather.city}}, {{ cityWeather.weatherData.city.country}}
+            </div>
+            <div class="subtitle-column my-auto">
+              {{ weather.dt_txt | date: 'MM-dd-YY HH:mm' }}
+            </div>
+          </div>
+          <div class="content-row" style="margin-top: 10px">
+            <div class="icon-column">
+              <img [src]="getWeatherIcon(weather.weather[0].description)" alt="weather icon">
+            </div>
+            <div class="info-column my-auto">
+              <div class="weather-condition">{{Math.round(weather.main.temp)}} °C</div>
+              <div class="weather-condition">{{weather.weather[0].description}}</div>
+              <div class="weather-details">
+                <span>Humidity: {{weather.main.humidity}}%</span>
+              </div>
+            </div>
+          </div>
+          <div class="actions-row">
+            <button mat-raised-button routerLink="city-weather/{{cityWeather.city}}">View More</button>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
