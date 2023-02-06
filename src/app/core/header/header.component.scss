@@ -1,0 +1,54 @@
+*{
+  font-size: 25px;
+  font-weight: 400;
+
+}
+.mat-button{
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.mat-button:hover{
+  color: #810000;
+}
+.container-fluid{
+  background-color: #252525;
+}
+.navbar{
+  background-color: #252525;
+  height: 50px;
+}
+.nav-col{
+  padding: 0;
+}
+.mat-toolbar{
+  padding-right: 30px;
+  padding-left: 30px;
+  color: white;
+}
+
+.nav-buttons {
+  display: flex;
+}
+
+.burger-icon {
+  display: none;
+}
+.logo{
+  width: 100px;
+}
+@media (max-width: 800px) {
+  .nav-buttons {
+    display: none;
+  }
+  .burger-icon {
+    display: flex;
+  }
+  .mat-icon{
+
+    width: 50px;
+  }
+
+}
+button {
+  font-family: 'Open Sans', sans-serif;
+}
