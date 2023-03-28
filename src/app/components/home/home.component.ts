@@ -75,6 +75,8 @@ export class HomeComponent implements OnInit {
         return 'https://openweathermap.org/img/wn/13d@2x.png';
       case 'light snow':
         return 'https://openweathermap.org/img/wn/13d@2x.png';
+      case 'snow':
+        return 'https://openweathermap.org/img/wn/13d@2x.png';
       default:
         return '';
     }
